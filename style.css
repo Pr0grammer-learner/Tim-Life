@@ -1,0 +1,131 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+#nameGame{
+    font-family: fantasy;
+    font-size: 150;
+    font-style: italic;
+    font-weight: 400;
+    text-align: center;
+}
+#pers{
+    position: absolute;
+    right: 40%;
+    height: 300px;
+    width: 300px;
+    text-align: center;
+}
+#top{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#character{
+    position: absolute;
+    top: 10;
+    right: 0;
+    height: 300px;
+    width: 300px;
+}
+
+#buttonNewMove{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50px;
+    width: 50px;
+    background: orange;
+}
+#buttonMarket{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 50px;
+    width: 50px;
+    background: green;
+}
+#buttonSettings{
+    position: absolute;    
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    background: purple;
+}
+
+
+#health{
+    padding: 10px;
+    position: relative;
+    background-color: black;
+
+    height: 50px;
+    width: 300px;
+
+    color: white;
+}
+.heart{
+    padding: 0 50px 10px 0px;
+    margin: 10px;
+    height: 50px;
+    width: 50px;
+    background: red;
+}
+
+
+#new_first, #new_second, #new_third{ 
+    left: 14%;
+    width: 700px;
+    height: auto;
+    background-color: rgb(213, 226, 157);
+    border-radius: 16px;
+    z-index: 100;
+}
+
+#event{
+    position: absolute;  
+    top: 4.5%;
+    left: 35%;
+    z-index: 100;
+    width: 30%;
+    height: 70%;
+}
+.new{
+    /* top: 1000px; */
+    position: absolute;
+    background-color: rgb(213, 226, 157);
+    border-radius: 16px;
+    border: 1px solid black;
+}
+.header{
+    text-align: center;
+    margin: 30px;
+    font-size: 64px;
+    background-color: rgb(231, 230, 183);
+}
+.img{
+    /* margin: 0 170px; */
+    text-align: justify;
+    background-color: black;
+    height: 300px;
+}
+center{
+    background-color: rgb(213, 226, 157);
+}
+.Lorem{
+    background-color: rgb(213, 226, 157);
+    font-size: 24px;
+    margin: 30px;
+}
+.resolution{
+    position: relative;
+    background-color: rgb(143, 146, 128);
+    text-align: center;
+    font-size: 40px;
+    margin: 40px 30px;
+    border: 1px solid black;
+}
+
+
