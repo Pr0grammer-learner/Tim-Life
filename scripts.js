@@ -54,11 +54,6 @@ newCharacter = () =>{
 
 window.onload = () => newCharacter()
 
-
-    for(i=0;i<count+1;i++){
-        htmlHearts += `<span class="heart"></span>`
-    }
-
 checkResolutionSecond = (resolutionSecond) =>{return (resolutionSecond !== null) ? `<div class="resolution third" id="os">${resolutionSecond}</div>` : ``}
 checkResolutionThird = (resolutionThird) =>{return (resolutionThird !== null) ? `<div class="resolution third" id="ot">${resolutionThird}</div>` : ``}
 
