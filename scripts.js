@@ -115,12 +115,20 @@ const gameEvents = [
 		RepetitionOfAnswers = (coast, min1, max1, min2, max2) =>{
 
 			hearts -= coast
+			if(hearts > 4)joy = 4
+			if(hearts < 0)hearts = 0
 			localStorage.setItem('hearts', hearts)
 
 			joy += getRand(min1, max1)
+			if(joy > 100)joy = 100
+			if(joy < 0)joy = 0
+
 			localStorage.setItem('joy', hearts)
 
 			vital += getRand(min2, max2)
+			if(vital>100)vital = 100
+			if(vital < 0)vital = 0
+
 			localStorage.setItem('vital', 50)
 
 			newCharacter()
@@ -140,9 +148,13 @@ const gameEvents = [
 		RepetitionOfAnswers = (min, max, coast) =>{
 
 			joy += getRand(min, max)
+			if(joy > 100)joy = 100
+			if(joy < 0)joy = 0
+
 			localStorage.setItem('money', joy)
 
 			money += coast
+			if(money < 0)money = 0
 			localStorage.setItem('money', money)
 
 			newCharacter()
@@ -163,7 +175,9 @@ const gameEvents = [
 		RepetitionOfAnswers = (coast) =>{
 
 			money += coast
+			if(money < 0)money = 0
 			localStorage.setItem('money', money)
+
 			change()
 			newCharacter()
 		}
@@ -182,9 +196,15 @@ const gameEvents = [
 		RepetitionOfAnswers = (min1, max1, min2, max2) =>{
 
 			joy += getRand(min1, max1)
+			if(joy > 100)joy = 100
+			if(joy < 0)joy = 0
+
 			localStorage.setItem('money', joy)
 
 			vital += getRand(min2, max2)
+			if(vital>100)vital = 100
+			if(vital < 0)vital = 0
+			
 			localStorage.setItem('vital', 50)
 
 			change()
