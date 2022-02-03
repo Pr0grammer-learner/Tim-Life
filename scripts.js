@@ -2,6 +2,7 @@ let hearts = +localStorage.getItem('hearts')
 let vital = +localStorage.getItem('vital')
 let joy = +localStorage.getItem('joy')
 let money = +localStorage.getItem('money')
+let level = +localStorage.getItem('level')
 
 
 if(hearts === 0||hearts === null||hearts === 'undefined'){
@@ -24,6 +25,7 @@ if(money === 0||money === null||money === 'undefined'){
 	money = +localStorage.getItem('money')
 }
 
+
 function getRand(min, max) {
 	return Math.floor(Math.random() * (max - min) + min);
 }
@@ -37,7 +39,7 @@ newCharacter = () =>{
 
 	character.innerHTML = "";
 	character.insertAdjacentHTML("afterbegin", `
-		<h1>Уровень: 1<h1>
+		<h1>Уровень: ${level}<h1>
 
 		Здоровье:
 
@@ -96,8 +98,7 @@ change = () =>{
 
 		gameEvents[ randoM( gameEvents.length) ]()
 
-		this.innerHTML++
-
+		level++
 	}
 }
 
@@ -204,7 +205,7 @@ const gameEvents = [
 			vital += getRand(min2, max2)
 			if(vital>100)vital = 100
 			if(vital < 0)vital = 0
-			
+
 			localStorage.setItem('vital', 50)
 
 			change()
@@ -221,5 +222,6 @@ document.querySelector('#buttonNewMove').onclick = function() {
 
     gameEvents[ randoM( gameEvents.length) ]()
 
-    this.innerHTML++
+    level++
+	localStorage.setItem('level', level)
 }
