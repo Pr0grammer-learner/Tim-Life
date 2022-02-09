@@ -89,7 +89,7 @@ change = () =>{
 		if(vital === 0 || joy === 0 || hearts === 0){
 
 			localStorage.setItem('level', 0)
-			localStorage.setItem('vital', 51)
+			localStorage.setItem('vital', 50)
 			localStorage.setItem('hearts', 4)
 			localStorage.setItem('joy', 50)
 			localStorage.setItem('money', 0)
@@ -107,10 +107,12 @@ change = () =>{
 			document.querySelector('#ot').onclick = () => { window.location.reload() }
 
 			
-		} else gameEvents[ randoM( gameEvents.length) ]()
+		} else {
+			gameEvents[ randoM(gameEvents.length) ]()
+			level++
+			localStorage.setItem('level', level)
+		} 
 
-		level++
-		localStorage.setItem('level', level)
 	}
 }
 
@@ -148,7 +150,6 @@ const gameEvents = [
 			localStorage.setItem('vital', vital)
 
 			also()
-			check()
 		}
 		document.querySelector('#oo').onclick = () => RepetitionOfAnswers(1, 5, 20, 1, 7);
 		document.querySelector('#os').onclick = () => RepetitionOfAnswers(0, -15, -5, -10, -3);
