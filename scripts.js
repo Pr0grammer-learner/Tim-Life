@@ -87,6 +87,13 @@ change = () =>{
 	document.querySelector('#buttonNewMove').onclick = function() {
 
 		if(vital === 0 || joy === 0 || hearts === 0){
+
+			localStorage.setItem('level', 0)
+			localStorage.setItem('vital', 51)
+			localStorage.setItem('hearts', 4)
+			localStorage.setItem('joy', 50)
+			localStorage.setItem('money', 0)
+
 			html(
 				'Ты сдох',
 				'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2bZgDCFcLNCetK5oTqW49yI0HytjgBSdvFA&usqp=CAU', 
@@ -98,8 +105,8 @@ change = () =>{
 			document.querySelector('#oo').onclick = () => { window.location.reload() }
 			document.querySelector('#os').onclick = () => { window.location.reload() }
 			document.querySelector('#ot').onclick = () => { window.location.reload() }
-			console.log(level)
-	
+
+			
 		} else gameEvents[ randoM( gameEvents.length) ]()
 
 		level++
@@ -111,7 +118,6 @@ also = () =>{
 	newCharacter() 
 	change()
 }
-
 
 const gameEvents = [
 	Pivo = () =>{		
