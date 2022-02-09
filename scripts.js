@@ -26,27 +26,20 @@ if(money === 0||money === null||money === 'undefined'){
 }
 
 
-function getRand(min, max) {
-	return Math.floor(Math.random() * (max - min) + min);
-}
+function getRand(min, max) { return Math.floor(Math.random() * (max - min) + min) }
 
 let character = document.querySelector('#character')
 newCharacter = () =>{
 
 	htmlHearts = '';
 
-	for(i=0;i<hearts+1;i++) htmlHearts += `<span class="heart"></span>`
+	for( i = 0; i < hearts; i++ ) htmlHearts += `<span class="heart"></span>`;
 
 	character.innerHTML = "";
 	character.insertAdjacentHTML("afterbegin", `
 		<h1>Уровень: ${level}<h1>
 
-		Здоровье:
-
-		<div id="health">
-			${htmlHearts}
-		</div>
-
+		Здоровье: <div id="health">${htmlHearts}</div>
 		Еда и вода: ${vital}%
 		Развлечения: ${joy}%
 		Деньги: ${money}
@@ -74,7 +67,6 @@ html = (Newspaper, src, strangeLorem, resolutionFirst, resolutionSecond = null, 
 	newF.style.backgroundColor = '#D5E29D'
 
 	document.querySelector('.new.first').insertAdjacentHTML('beforeend',`
-
 		<header class="header">${Newspaper}</header>
 		<center><img class="img" src="${src}" alt=""></center>
 		<div class="Lorem first">${strangeLorem}</div>
@@ -83,8 +75,6 @@ html = (Newspaper, src, strangeLorem, resolutionFirst, resolutionSecond = null, 
 			${checkResolutionSecond(resolutionSecond)}
 			${checkResolutionThird(resolutionThird)}
 		<div>
-
-
 	`)
 }
 
@@ -96,12 +86,31 @@ change = () =>{
 
 	document.querySelector('#buttonNewMove').onclick = function() {
 
-		gameEvents[ randoM( gameEvents.length) ]()
+		if(vital === 0 || joy === 0 || hearts === 0){
+			html(
+				'Ты сдох',
+				'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2bZgDCFcLNCetK5oTqW49yI0HytjgBSdvFA&usqp=CAU', 
+				'С добрым утром', 
+				'Ок', 
+				'Че',
+				'Так стоп!'
+			)
+			document.querySelector('#oo').onclick = () => { window.location.reload() }
+			document.querySelector('#os').onclick = () => { window.location.reload() }
+			document.querySelector('#ot').onclick = () => { window.location.reload() }
+			console.log(level)
+	
+		} else gameEvents[ randoM( gameEvents.length) ]()
 
 		level++
+		localStorage.setItem('level', level)
 	}
 }
 
+also = () =>{
+	newCharacter() 
+	change()
+}
 
 
 const gameEvents = [
@@ -124,16 +133,16 @@ const gameEvents = [
 			if(joy > 100)joy = 100
 			if(joy < 0)joy = 0
 
-			localStorage.setItem('joy', hearts)
+			localStorage.setItem('joy', joy)
 
 			vital += getRand(min2, max2)
 			if(vital>100)vital = 100
 			if(vital < 0)vital = 0
 
-			localStorage.setItem('vital', 50)
+			localStorage.setItem('vital', vital)
 
-			newCharacter()
-			change()
+			also()
+			check()
 		}
 		document.querySelector('#oo').onclick = () => RepetitionOfAnswers(1, 5, 20, 1, 7);
 		document.querySelector('#os').onclick = () => RepetitionOfAnswers(0, -15, -5, -10, -3);
@@ -152,14 +161,13 @@ const gameEvents = [
 			if(joy > 100)joy = 100
 			if(joy < 0)joy = 0
 
-			localStorage.setItem('money', joy)
+			localStorage.setItem('joy', joy)
 
 			money += coast
-			if(money < 0)money = 0
+			if(money < 0)money = 0;
 			localStorage.setItem('money', money)
 
-			newCharacter()
-			change()
+			also()
 		}
 		document.querySelector('#oo').onclick = () => RepetitionOfAnswers(-25,-10,20)
 		document.querySelector('#os').onclick = () => RepetitionOfAnswers(5,15,-20)
@@ -176,11 +184,10 @@ const gameEvents = [
 		RepetitionOfAnswers = (coast) =>{
 
 			money += coast
-			if(money < 0)money = 0
+			if(money < 0)money = 0;
 			localStorage.setItem('money', money)
 
-			change()
-			newCharacter()
+			also()
 		}
 		document.querySelector('#oo').onclick = () => RepetitionOfAnswers(50)
 		document.querySelector('#os').onclick = () => RepetitionOfAnswers(0)
@@ -200,16 +207,15 @@ const gameEvents = [
 			if(joy > 100)joy = 100
 			if(joy < 0)joy = 0
 
-			localStorage.setItem('money', joy)
+			localStorage.setItem('joy', joy)
 
 			vital += getRand(min2, max2)
 			if(vital>100)vital = 100
 			if(vital < 0)vital = 0
 
-			localStorage.setItem('vital', 50)
+			localStorage.setItem('vital', vital)
 
-			change()
-			newCharacter()
+			also()
 		}
 		document.querySelector('#oo').onclick = () => RepetitionOfAnswers(5,30,-15,-5)
 		document.querySelector('#os').onclick = () => RepetitionOfAnswers(-20,-1,1,10)
